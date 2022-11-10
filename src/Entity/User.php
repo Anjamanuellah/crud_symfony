@@ -5,7 +5,7 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass=BlogRepository::class)
+ * @ORM\Entity(repositoryClass=UserRepository::class)
  */
 class User
 {
@@ -80,12 +80,12 @@ class User
 
     public function getTelephone(): ?string
     {
-        return $this->adress;
+        return $this->telephone;
     }
 
-    public function setTelephone(string $adress): self
+    public function setTelephone(string $telephone): self
     {
-        $this->adress = $adress;
+        $this->telephone = $telephone;
 
         return $this;
     }

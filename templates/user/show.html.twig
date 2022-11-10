@@ -17,25 +17,31 @@
                             <th>firstname</th>
                             <th>lastname</th>
                             <th>adress</th>
-                            <th>contact</th>
+                            <th>telephone</th>
                             <th>action</th>
                         </tr>
                     </thead>
                     <tbody>
-                        
+                        {% for user in users %}
                             <tr> 
-                                <td>1</td>
-                                <td>firstname</td>
-                                <td>lastname</td>
-                                <td>adress</td>
-                                <td>contact</td>
+                                <td>{{ user.id }}</td>
+                                <td>{{ user.firstname }}</td>
+                                <td>{{ user.lastname }}</td>
+                                <td>{{ user.adress }}</td>
+                                <td>{{ user.telephone }}</td>
                                 <td>
-                                    <a href="">supprimer</a>
-                                    <a href="">aditer</a>
+                                    <button class="btn btn-secondary">
+                                    <a href="{{ path('app_user_edit', {'id': user.id }) }}">editer</a>
+                                    </button>
+                                    {{ include('user/_delete_form.html.twig') }}
                                 </td>
                             </tr>
+                        {% endfor %}
                     </tbody>
                 </table>
+
+            <a href="{{ path('app_user_create') }}">Aller à la formulaire</a>
+
         </div>
     </div>
 {% endblock %}
