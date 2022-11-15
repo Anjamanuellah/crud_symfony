@@ -2,26 +2,26 @@
 
 namespace App\Repository;
 
-use App\Entity\UtilisateurLogin;
-use Doctrine\Persistence\ManagerRegistry;
+use App\Entity\Utilisateur;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @extends ServiceEntityRepository<UtilisateurLogin>
+ * @extends ServiceEntityRepository<Utilisateur>
  *
- * @method UtilisateurLogin|null find($id, $lockMode = null, $lockVersion = null)
- * @method UtilisateurLogin|null findOneBy(array $criteria, array $orderBy = null)
- * @method UtilisateurLogin[]    findAll()
- * @method UtilisateurLogin[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method Utilisateur|null find($id, $lockMode = null, $lockVersion = null)
+ * @method Utilisateur|null findOneBy(array $criteria, array $orderBy = null)
+ * @method Utilisateur[]    findAll()
+ * @method Utilisateur[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class UtilisateurLoginRepository extends ServiceEntityRepository
+class UtilisateurRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, UtilisateurLogin::class);
+        parent::__construct($registry, Utilisateur::class);
     }
 
-    public function add(UtilisateurLogin $entity, bool $flush = false): void
+    public function add(Utilisateur $entity, bool $flush = false): void
     {
         $this->getEntityManager()->persist($entity);
 
@@ -30,7 +30,7 @@ class UtilisateurLoginRepository extends ServiceEntityRepository
         }
     }
 
-    public function remove(UtilisateurLogin $entity, bool $flush = false): void
+    public function remove(Utilisateur $entity, bool $flush = false): void
     {
         $this->getEntityManager()->remove($entity);
 
@@ -40,7 +40,7 @@ class UtilisateurLoginRepository extends ServiceEntityRepository
     }
 
 //    /**
-//     * @return UtilisateurLogin[] Returns an array of UtilisateurLogin objects
+//     * @return Utilisateur[] Returns an array of Utilisateur objects
 //     */
 //    public function findByExampleField($value): array
 //    {
@@ -54,7 +54,7 @@ class UtilisateurLoginRepository extends ServiceEntityRepository
 //        ;
 //    }
 
-//    public function findOneBySomeField($value): ?UtilisateurLogin
+//    public function findOneBySomeField($value): ?Utilisateur
 //    {
 //        return $this->createQueryBuilder('u')
 //            ->andWhere('u.exampleField = :val')

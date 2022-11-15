@@ -6,6 +6,7 @@ use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 class UserType extends AbstractType
@@ -14,11 +15,11 @@ class UserType extends AbstractType
     {
         $builder
             ->add('firstname')
-            ->add('lastname')
-            ->add('adress')
-            ->add('telephone')
+            ->add('lastname',TextType::class)
+            ->add('adress',TextType::class)
+            ->add('telephone',TextType::class)
             ->add('save', SubmitType::class, [
-                'label'=>'enregistrer'
+                'label'=>'Enregistrer'
              ]);
     }
 
